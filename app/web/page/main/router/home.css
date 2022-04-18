@@ -1,0 +1,96 @@
+.ant-menu-horizontal {
+  text-align: center;
+}
+
+.ant-menu-item>a:hover {
+  text-decoration: none;
+}
+
+.cryptocurrency-list-detail-title {
+  text-align: center;
+  margin: 24px auto;
+}
+
+.cryptocurrency-list-list {
+  width: 90%;
+  margin: 40px auto;
+}
+
+.cryptocurrency-list-list>ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cryptocurrency-list-list>li {
+  margin-top: 40px;
+  color: #000;
+  border-bottom: 1px solid #cecece;
+}
+
+.cryptocurrency-list-list>h2 {
+  font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+  line-height: 1.1;
+  font-size: 30px;
+}
+
+.cryptocurrency-list-price {
+  font-size: 14px;
+  font-style: normal;
+  font-size: large;
+  font-family:fantasy;
+  color: #ff7700;
+}
+
+.cryptocurrency-list-info {
+  font-family: 'Lora', 'Times New Roman', serif;
+  color: #808080;
+  font-size: 16px;
+  font-style: italic;
+  margin-top: 0;
+}
+
+.cryptocurrency-list-item {
+  margin: 10px 10px 20px 10px;
+  flex: 30%;
+  max-width: 30%;
+  border: solid #cecece 1px;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: #cecece;
+}
+
+.cryptocurrency-list-item>a {
+  color: #404040;
+}
+
+.cryptocurrency-list-item>a:hover,
+.cryptocurrency-list-item>a:focus {
+  text-decoration: none;
+  color: #0666C5;
+}
+
+.cryptocurrency-list-item>a>.cryptocurrency-list-title {
+  font-size: 21px;
+  line-height: 1.3;
+  margin-top: 30px;
+  margin-bottom: 8px;
+
+}
+
+.cryptocurrency-list-title>a {
+  color: #000;
+}
+
+.cryptocurrency-list-item>.cryptocurrency-list-desc {
+  font-family: sans-serif;
+  color: #808080;
+  font-size: 14px;
+  margin-top: 0;
+  display: flex;
+}
+
+.cryptocurrency-list-desc>div {
+  flex: 1;
+}
