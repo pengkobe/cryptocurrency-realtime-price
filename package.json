@@ -1,0 +1,121 @@
+{
+  "name": "cryptocurrency-realtime-price",
+  "version": "1.0.0",
+  "description": "for test",
+  "scripts": {
+    "dev": "egg-bin dev -r egg-ts-helper/register",
+    "debug": "egg-bin debug",
+    "build": "npm run tsc && easy build",
+    "start": "egg-scripts start --port 7001 --workers 4",
+    "backend": "nohup egg-scripts start --port 7001 --workers 4 &",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "clean": "ets clean && easy clean",
+    "kill": "easy kill",
+    "lint": "tslint --project . -c tslint.json",
+    "fix": "tslint --fix --project . -c tslint.json",
+    "ii": "npm install --registry https://registry.npm.taobao.org",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md  -s -r 0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "app/**/*.ts,tsx": [
+      "tslint .",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@hubcarl/json-typescript-mapper": "^2.0.1",
+    "axios": "^0.19.2",
+    "cross-env": "^5.0.0",
+    "egg": "^2.1.0",
+    "egg-cors": "^2.0.0",
+    "egg-logger": "^1.5.0",
+    "egg-mongoose": "^3.3.1",
+    "egg-redis": "^2.4.0",
+    "egg-scripts": "^2.6.0",
+    "egg-socket.io": "^4.1.6",
+    "egg-validate": "^1.0.0",
+    "egg-view-react-ssr": "^3.0.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.2",
+    "lodash": "^4.17.4",
+    "lodash-id": "^0.14.0",
+    "lowdb": "^1.0.0",
+    "mobx": "^5.15.3",
+    "mobx-react": "^6.1.4",
+    "moment": "^2.17.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-config": "^1.0.0-beta.4",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "shortid": "^2.2.8",
+    "showdown": "^1.8.6"
+  },
+  "devDependencies": {
+    "@easy-team/easywebpack-cli": "^4.0.0",
+    "@easy-team/easywebpack-react": "^4.0.0",
+    "@types/react": "^16.0.34",
+    "@types/react-dom": "^16.0.3",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^4.7.1",
+    "egg-ts-helper": "^1.9.0",
+    "egg-webpack": "^4.0.0",
+    "egg-webpack-react": "^3.0.0",
+    "eslint": "^4.6.1",
+    "eslint-config-egg": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
+    "husky": "^4.2.5",
+    "ip": "^1.1.5",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "lint-staged": "^10.2.2",
+    "ts-loader": "^4.0.0",
+    "tslint": "^5.9.1",
+    "tslint-loader": "^3.5.3",
+    "typescript": "^3.0.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^10.0.2"
+  },
+  "egg": {
+    "typescript": true,
+    "declarations": true,
+    "tsHelper": {
+      "watchDirs": {
+        "socketio": {
+          "enabled": true,
+          "directory": "app/io",
+          "declareTo": "Application.io",
+          "generator": "class",
+          "interface": "IO"
+        }
+      }
+    }
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "ci": {
+    "version": "8, 10, 12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pengkobe/cryptocurrency-realtime-price"
+  },
+  "author": "pengkobe",
+  "license": "MIT",
+  "homepage": "https://github.com/pengkobe/cryptocurrency-realtime-price",
+  "webpack": {
+    "loaders": {
+      "scss": true
+    }
+  }
+}
