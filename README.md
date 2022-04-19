@@ -2,7 +2,21 @@
 
 > build a simple real-time application which monitors the prices of cryptocurrencies, such as Bitcoin, Ether, etc.  
 
+Target architecture:  
 ![architecture](http://processon.com/chart_image/625a90a86376891e0fe51a07.png)
+
+## [V.0.1.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.1.0)
+
+Click here to view the page: http://119.45.138.135:7001/
+
+ps: v0.1.0 uses mocked data because of unknown network problems outside the wall.
+
+
+## 相关仓库
+
+数据加载调度器, SEE:
+
+https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 
 ## 依赖
 
@@ -20,15 +34,10 @@
 ## 特性
 
 - 支持 Egg Node 端代码和前端代码 TypeScript 编写和构建
-
 - 支持 Node 和 asyncData 方式获取数据进行渲染
-
 - 支持多页面(MPA) 和 单页面(SPA) 服务端渲染(SSR)和前端渲染(CSR)
-
 - 支持 Webpack 时时编译和热更新, `npm run dev` 一键启动应用
-
 - 支持开发环境, 测试环境，正式环境 Webpack 编译
- 
 
 ## 运行
 
