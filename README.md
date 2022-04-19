@@ -1,6 +1,8 @@
 # cryptocurrency-realtime-price
 
-> build a simple real-time application which monitors the prices of cryptocurrencies, such as Bitcoin, Ether, etc.
+> build a simple real-time application which monitors the prices of cryptocurrencies, such as Bitcoin, Ether, etc.  
+
+![architecture](http://processon.com/chart_image/625a90a86376891e0fe51a07.png)
 
 ## 依赖
 
