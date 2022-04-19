@@ -94,3 +94,36 @@
 .cryptocurrency-list-desc>div {
   flex: 1;
 }
+
+
+@media (max-width: 992px) {
+  .cryptocurrency-list-item {
+    margin: 10px 10px 20px 10px;
+    flex: 45%;
+    max-width: 45%;
+    border: solid #cecece 1px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: #cecece;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cryptocurrency-list-item {
+    margin: 10px 10px 10px 10px;
+    flex: 95%;
+    max-width: 95%;
+    border: solid #cecece 1px;
+    border-radius: 5px;
+    padding: 5px;
+    box-shadow: #cecece;
+  }
+}
+
+@media (max-device-width: 480px) and (orientation: landscape) {
+  .cryptocurrency-list-item {
+    margin: 10px 10px 10px 10px;
+    flex: 95%;
+    max-width: 95%;
+  }
+}

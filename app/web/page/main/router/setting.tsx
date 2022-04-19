@@ -11,7 +11,7 @@ export default class Setting extends Component {
 
   render() {
     return <div>
-      <h2 style={{ marginTop: '40px', marginBottom: '40px', textAlign: 'center'}}>Egg React Server Side Render</h2>
+      <h2 style={{ marginTop: '40px', marginBottom: '40px', textAlign: 'center'}}>cryptocurrency-realtime-price Setting page</h2>
       <div style={{ textAlign: 'center' }}><AsyncLoadableComponent /></div>
     </div>;
   }
