@@ -21,7 +21,7 @@ module.exports = app => {
             }
         }
 
-        nsp.emit('price_updated', message);
+        nsp.emit('info_updated', message);
     });
 
     return async (ctx, next) => {

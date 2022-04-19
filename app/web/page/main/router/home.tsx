@@ -4,51 +4,59 @@ import { Link } from 'react-router-dom';
 import { hot } from 'react-hot-loader/root'
 import sockjs from 'socket.io-client';
 import request from '../../../framework/request';
-
 import './home.css'
+
 class Home extends Component<any, any> {
+  socket:any;
+
+  constructor(p){
+    super(p);
+  }
+
   static async asyncData(context, route) {
     return request.get('/api/main/prices', context);
   }
 
   componentDidMount() {
-    console.info('----------componentDidMount-------------')
-    this.testconnect();
+    this.initSocketConnection();
   }
-  testconnect = () => {
-    console.info('------------------- here i am')
+
+  componentWillUnmount(){
+    this.socket.disconnect();
+  }
+
+  initSocketConnection = () => {
+    console.info('-------- init socket connection -----------')
     let socket = sockjs("ws://localhost:7001", { transports: ['websocket'] })
+
+    socket.on('connect', () => {
+      console.log(socket.connected);
+      socket.emit('join', 'hi');
+    });
+    socket.on('ping', (error) => {
+      console.log('ping_include')
+    });
 
     socket.on('reconnect_attempt', () => {
       console.log("reconnect")
       // TODO: socket.transports = ['websocket', 'polling', 'flashsocket'];
     });
-
     socket.on('reconnect_error', (attemptNumber) => {
       console.log(attemptNumber)
     });
-
-    socket.on('connect', () => {
-      console.log(socket.connected)
-    })
-
+    
     socket.on('connect_error', (error) => {
       console.log(error)
     });
 
-    socket.on('ping', (error) => {
-      console.log('ping_include')
-    });
-    socket.on('price_updated', (msg) => {
+    // update cryptocurrency realtime price
+    socket.on('info_updated', (msg) => {
       const {onRefresh} = this.props
       onRefresh(msg);
-      console.warn('price_updated', msg)  
+      console.warn('info_updated', msg)  
     });
 
-    // 连接成功的connect方法
-    socket.on("connect", function () {
-      socket.emit('join', 'hi');
-    })
+    this.socket = socket;
   }
 
   render() {
