@@ -1,4 +1,4 @@
-# cryptocurrency-realtime-price
+# Cryptocurrency-Realtime-Price
 
 > build a simple real-time application which monitors the prices of cryptocurrencies, such as Bitcoin, Ether, etc.  
 
@@ -12,13 +12,24 @@ Click here to view the page: http://119.45.138.135:7001/
 ps: v0.1.0 uses mocked data because of unknown network problems outside the wall.
 
 
-## 相关仓库
+## Related Repo
 
-数据加载调度器, SEE:
+SEE:
 
 https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 
-## 依赖
+> to setup timer to load data from cryptonator
+
+## TODO
+
+1. [ ] Support unit test with egg-mocker + mocha
+2. [ ] Support user personalized setting with Mongodb
+3. [ ] Support deploy with Docker + k8s
+4. [ ] Application Monitoring tools(ELK + Prometheus + Grafana)
+5. [ ] Support Android and IOS
+
+
+## Dependencies
 
 - Egg： ^2.x.x
 - Node: Node ^8.x.x+,
@@ -31,56 +42,34 @@ https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 - [egg-webpack-react](https://github.com/hubcarl/egg-webpack-react)
 
 
-## 特性
 
-- 支持 Egg Node 端代码和前端代码 TypeScript 编写和构建
-- 支持 Node 和 asyncData 方式获取数据进行渲染
-- 支持多页面(MPA) 和 单页面(SPA) 服务端渲染(SSR)和前端渲染(CSR)
-- 支持 Webpack 时时编译和热更新, `npm run dev` 一键启动应用
-- 支持开发环境, 测试环境，正式环境 Webpack 编译
 
-## 运行
+## Run
 
-#### 安装依赖
 
 ```bash
 cnpm install
-```
 
-#### 本地启动应用
-
-```bash
 npm run dev
 ```
 
-应用访问: http://127.0.0.1:7001
+visit: http://127.0.0.1:7001
 
-#### 构建文件
 
-- TypeScript Egg 构建
-
-```bash
-npm run tsc
-```
-
-- TypeScript 前端工程构建
+#### Build & Deploy
 
 ```bash
+npm run clean
 npm run build
+easy zip
 ```
 
-#### 打包部署
 
-1. 先运行 `npm run tsc` 和 `npm run build` 构建 TypeScript Egg 代码和 TypeScript 前端代码
-2. 项目代码和构建代码一起打包代码
-3. 应用部署后，通过 `npm start` 启动应用
+## Development
 
+#### Front End
 
-## 开发
-
-#### 编写前端代码
-
->添加 `${root}/app/web/page/demo.tsx` 前端代码
+> `${root}/app/web/page/demo.tsx` 
 
 ```js
 'use strict';
@@ -98,25 +87,25 @@ class Demo extends Component<any, any> {
 export default Demo;
 ```
 
-#### 编写 Node 代码
+#### NodeJS
 
->添加 `${root}/app/controller/demo.ts` Node 代码
+> `${root}/app/controller/demo.ts`
 
 ```js
 import { Controller, Context } from 'egg';
 
 export default class DemoController extends Controller {
   public async index(ctx: Context) {
-    const title = 'Node 直接获取渲染数据';
+    const title = 'Node render';
     const article = await ctx.service.article.query({ id: Number(id) });
     await ctx.render('demo.js', { title, article });
   }
 }
 ```
 
-#### Egg 路由配置 
+#### Egg Route
 
->添加 `${root}/app/router.ts` Egg 路由配置
+> `${root}/app/router.ts`
 
 ```js
 import { Application } from 'egg';
@@ -126,9 +115,9 @@ export default (app: Application) => {
 };
 ```
 
-#### Webpack 构建配置
+#### Webpack configuration
 
->添加 `${root}/webpack.config.js` 新增页面 entry 配置
+> `${root}/webpack.config.js` 
 
 ```js
 module.exports = {
