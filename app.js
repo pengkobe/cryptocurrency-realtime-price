@@ -16,7 +16,7 @@ class AppBootHook {
       tmp = JSON.parse(tmp);
       ret.push(tmp)
     }
-    console.warn('i am here!!!', ret)
+    console.info('init data from redis: ', ret)
     this.app.priceCache = ret;
   }
 

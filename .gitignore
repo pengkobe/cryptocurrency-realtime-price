@@ -6,3 +6,4 @@ typings
 public
 app/view/img
 app/view/*.js
+config/manifest.json
