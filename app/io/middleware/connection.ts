@@ -8,7 +8,7 @@ module.exports = app => {
     app.redis.get('for_sub_pub').on("message", (channel, message) => {
         console.log(`Received ${message} from ${channel}`);
         message = JSON.parse(message);
-        let cache = app.cache;
+        let cache = app.priceCache;
 
         // find and update, todo: make O(n) to O(1)
         if (cache) {
@@ -20,7 +20,6 @@ module.exports = app => {
                 }
             }
         }
-
         nsp.emit('info_updated', message);
     });
 
