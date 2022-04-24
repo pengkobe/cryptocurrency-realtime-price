@@ -7,9 +7,9 @@ import request from '../../../framework/request';
 import './home.css'
 
 class Home extends Component<any, any> {
-  socket:any;
+  socket: any;
 
-  constructor(p){
+  constructor(p) {
     super(p);
   }
 
@@ -21,39 +21,32 @@ class Home extends Component<any, any> {
     this.initSocketConnection();
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.socket.disconnect();
   }
 
   initSocketConnection = () => {
-    console.info('-------- init socket connection -----------')
-    let socket = sockjs("ws://localhost:7001", { transports: ['websocket'] })
+    console.info('------ init socket connection -------')
+    let socket = sockjs("ws://127.0.0.1:7001", { transports: ['websocket'] })
 
     socket.on('connect', () => {
-      console.log(socket.connected);
+      console.info(socket.connected);
       socket.emit('join', 'hi');
-    });
-    socket.on('ping', (error) => {
-      console.log('ping_include')
     });
 
     socket.on('reconnect_attempt', () => {
-      console.log("reconnect")
-      // TODO: socket.transports = ['websocket', 'polling', 'flashsocket'];
+      console.info("reconnect");
     });
-    socket.on('reconnect_error', (attemptNumber) => {
-      console.log(attemptNumber)
-    });
-    
+
     socket.on('connect_error', (error) => {
-      console.log(error)
+      console.warn(error);
     });
 
     // update cryptocurrency realtime price
     socket.on('info_updated', (msg) => {
-      const {onRefresh} = this.props
+      const { onRefresh } = this.props
       onRefresh(msg);
-      console.warn('info_updated', msg)  
+      // console.info('info_updated', msg);
     });
 
     this.socket = socket;
@@ -61,10 +54,13 @@ class Home extends Component<any, any> {
 
   render() {
     const { list = [] } = this.props;
-    return <div className="cryptocurrency-list-list">
+
+    return <div className="cryptocurrency-list-block">
+      <div className='cryptocurrency-list-block-title'>cryptocurrency-realtime-price</div>
       <ul>
         {list.map(function (item) {
-          return <li key={item.name} className="cryptocurrency-list-item">
+          return <li key={item.name}
+            className={`cryptocurrency-list-item tab ${item.change > 0 ? "bg-transition-green" : "bg-transition-red"}`} >
             <h2 className="cryptocurrency-list-title">
               <Link to={'/detail/' + item.name}>{item.name}</Link>
             </h2>
@@ -94,7 +90,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onRefresh: (msg) => dispatch({type: 'REFRESH',data:msg})
+    onRefresh: (msg) => dispatch({ type: 'REFRESH', data: msg })
   };
 };
 

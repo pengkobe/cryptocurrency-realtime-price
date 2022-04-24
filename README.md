@@ -7,32 +7,27 @@ Target architecture:
 
 ## Release history
 
-#### [V.0.2.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.2.0)
-Click here to view the page: http://119.45.138.135:7001/
+### **[V.0.2.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.2.0) now released!!!**
+Click here to view: http://119.45.138.135:7001/
 
 #### [V.0.1.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.1.0)
 ps: v0.1.0 uses mocked data because of unknown network problems outside the wall.
 
-
-## Related Repo
-SEE:
-
-https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
-
-> setup timer to load data from nomics
-
 ## Run
 
-You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start 
+notes: **You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start**  
+SEE:  
+https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
+> setup scheduler to load data from nomics
 
 ```bash
 git clone https://github.com/pengkobe/cryptocurrency-realtime-price
-
+cd cryptocurrency-realtime-price
 # In china mainland
 # npm install --registry=https://registry.npm.taobao.org
 npm install
 
-# configure your redis at ./config/config.default.ts
+# configure your redis at /config/config.default.ts
 #  exports.redis = {
 #     clients: {
 #       for_sub_pub: {
@@ -65,9 +60,7 @@ npm run build
 easy zip
 ```
 
-copy the zip file you generated to server
-
-Run in backend mode:
+copy the zip file you generated to server and Run in backend mode:
 ```bash
 unzip your_zip_filename
 cd your_unzip_directory

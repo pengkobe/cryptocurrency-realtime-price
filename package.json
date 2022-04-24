@@ -1,13 +1,13 @@
 {
   "name": "cryptocurrency-realtime-price",
   "version": "1.0.0",
-  "description": "for test",
+  "description": "build a simple real-time application which monitors the prices of cryptocurrencies, such as Bitcoin, Ether, etc. ",
   "scripts": {
     "dev": "egg-bin dev -r egg-ts-helper/register",
     "debug": "egg-bin debug",
     "build": "npm run tsc && easy build",
-    "start": "egg-scripts start --port 7001 --workers 4",
-    "backend": "nohup egg-scripts start --port 7001 --workers 4 &",
+    "start": "egg-scripts start --port 7001 --workers 1",
+    "backend": "nohup egg-scripts start --port 7001 --workers 1 &",
     "tsc": "ets && tsc -p tsconfig.json",
     "clean": "ets clean && easy clean",
     "kill": "easy kill",
