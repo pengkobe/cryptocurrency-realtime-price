@@ -27,7 +27,7 @@ class Home extends Component<any, any> {
 
   initSocketConnection = () => {
     console.info('------ init socket connection -------')
-    let socket = sockjs("ws://127.0.0.1:7001", { transports: ['websocket'] })
+    let socket = sockjs(`ws://${window.location.host}`, { transports: ['websocket'] })
 
     socket.on('connect', () => {
       console.info(socket.connected);
