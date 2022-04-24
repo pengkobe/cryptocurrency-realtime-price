@@ -20,6 +20,56 @@ https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 
 > to setup timer to load data from cryptonator
 
+## Run
+
+```bash
+git clone https://github.com/pengkobe/cryptocurrency-realtime-price
+
+# In china mainland
+# npm install --registry=https://registry.npm.taobao.org
+npm install
+
+# configure your redis at ./config/config.default.ts
+#  exports.redis = {
+#     clients: {
+#       for_sub_pub: {
+#         port: your_port,          // Redis port
+#         host: 'your_host',        // Redis host
+#         password: 'your_password',// If you have set password
+#         db: your_db_num,          // 0 ~ 15
+#       },
+#       for_cache: {
+#         port: your_port,          // Redis port
+#         host: 'your_host',        // Redis host
+#         password: 'your_password',// If you have set password
+#         db: your_db_num,          // 0 ~ 15
+#       }
+#     },
+#   }
+
+npm run dev
+```
+
+visit: http://127.0.0.1:7001
+
+
+## Build & Deploy
+
+```bash
+npm run clean
+npm run build
+easy zip
+```
+
+copy the zip file you generated to to your server
+
+```bash
+unzip your_zip_filename
+cd your_unzip_directory
+npm install --production
+npm run backend
+```
+
 ## TODO
 
 1. [ ] Support unit test with egg-mocker + mocha
@@ -27,7 +77,6 @@ https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 3. [ ] Support deploy with Docker + k8s
 4. [ ] Application Monitoring tools(ELK + Prometheus + Grafana)
 5. [ ] Support Android and IOS
-
 
 ## Dependencies
 
@@ -40,93 +89,6 @@ https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 - [egg-view-react-ssr](https://github.com/hubcarl/egg-view-react-ssr) 
 - [egg-webpack](https://github.com/hubcarl/egg-webpack) 
 - [egg-webpack-react](https://github.com/hubcarl/egg-webpack-react)
-
-
-
-
-## Run
-
-
-```bash
-cnpm install
-
-npm run dev
-```
-
-visit: http://127.0.0.1:7001
-
-
-#### Build & Deploy
-
-```bash
-npm run clean
-npm run build
-easy zip
-```
-
-
-## Development
-
-#### Front End
-
-> `${root}/app/web/page/demo.tsx` 
-
-```js
-'use strict';
-import React, { Component } from 'react';
-class Demo extends Component<any, any> {
-  render() {
-    const { title, article } = this.props;
-    return <div>
-      <h1 className="easy-article-detail-title">{title}</h1>
-      <h3 className="easy-article-detail-title">{article.title}</h3>
-      <div>{article.content}</div>
-    </div>;
-  }
-}
-export default Demo;
-```
-
-#### NodeJS
-
-> `${root}/app/controller/demo.ts`
-
-```js
-import { Controller, Context } from 'egg';
-
-export default class DemoController extends Controller {
-  public async index(ctx: Context) {
-    const title = 'Node render';
-    const article = await ctx.service.article.query({ id: Number(id) });
-    await ctx.render('demo.js', { title, article });
-  }
-}
-```
-
-#### Egg Route
-
-> `${root}/app/router.ts`
-
-```js
-import { Application } from 'egg';
-export default (app: Application) => {
-  const { router, controller } = app;
-  router.get('/demo', controller.demo.index);
-};
-```
-
-#### Webpack configuration
-
-> `${root}/webpack.config.js` 
-
-```js
-module.exports = {
-  entry: {
-    demo: 'app/web/page/demo.tsx',
-  }
-}
-```
-
 
 ## License
 
