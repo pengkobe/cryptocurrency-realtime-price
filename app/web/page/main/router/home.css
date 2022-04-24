@@ -6,30 +6,36 @@
   text-decoration: none;
 }
 
+.cryptocurrency-list-block-title {
+  font-size: 32px;
+  font-weight: 400;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
 .cryptocurrency-list-detail-title {
   text-align: center;
   margin: 24px auto;
 }
 
-.cryptocurrency-list-list {
+.cryptocurrency-list-block {
   width: 90%;
   margin: 40px auto;
 }
 
-.cryptocurrency-list-list>ul {
+.cryptocurrency-list-block>ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
 }
 
-.cryptocurrency-list-list>li {
+.cryptocurrency-list-block>li {
   margin-top: 40px;
   color: #000;
   border-bottom: 1px solid #cecece;
 }
 
-.cryptocurrency-list-list>h2 {
+.cryptocurrency-list-block>h2 {
   font-family: "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
   line-height: 1.1;
   font-size: 30px;
@@ -39,7 +45,7 @@
   font-size: 14px;
   font-style: normal;
   font-size: large;
-  font-family:fantasy;
+  font-family: fantasy;
   color: #ff7700;
 }
 
@@ -95,6 +101,43 @@
   flex: 1;
 }
 
+.bg-transition-green {
+  animation-name: fadeInGreen;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+
+@keyframes fadeInGreen {
+  0% {
+    background: rgba(0, 238, 2, .2);
+  }
+
+  100% {
+    background: white;
+  }
+}
+
+.bg-transition-red {
+  animation-name: fadeInRed;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0.3s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+}
+
+@keyframes fadeInRed {
+  0% {
+    background: rgba(230, 56, 25, 0.2);
+  }
+
+  100% {
+    background: white;
+  }
+}
 
 @media (max-width: 992px) {
   .cryptocurrency-list-item {
