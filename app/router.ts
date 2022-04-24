@@ -8,7 +8,5 @@ export default (app: Application) => {
 
   // for http request
   router.get('/api/main/prices', controller.main.prices);
-  router.get('/api/main/:id', controller.main.detail);
-  router.get('/api/main/setting', controller.main.list);
   router.get('/(.*?)', controller.main.home);
 };

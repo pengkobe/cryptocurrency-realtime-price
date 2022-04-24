@@ -1,10 +1,8 @@
 {
-  "chunk/0.js": "/public/js/chunk/0.js",
   "common.css": "/public/css/common.css",
   "common.js": "/public/js/chunk/common.js",
   "main.js": "/public/js/chunk/main.js",
   "runtime.js": "/public/js/runtime.js",
-  "img/react.png": "/public/img/react.png",
   "deps": {
     "main.js": {
       "js": [

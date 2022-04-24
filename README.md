@@ -5,20 +5,126 @@
 Target architecture:  
 ![architecture](http://processon.com/chart_image/625a90a86376891e0fe51a07.png)
 
-## [V.0.1.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.1.0)
+## Release history
 
+#### [V.0.2.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.2.0)
 Click here to view the page: http://119.45.138.135:7001/
 
+#### [V.0.1.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.1.0)
 ps: v0.1.0 uses mocked data because of unknown network problems outside the wall.
 
 
 ## Related Repo
-
 SEE:
 
 https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 
-> to setup timer to load data from cryptonator
+> setup timer to load data from nomics
+
+## Run
+
+You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start 
+
+```bash
+git clone https://github.com/pengkobe/cryptocurrency-realtime-price
+
+# In china mainland
+# npm install --registry=https://registry.npm.taobao.org
+npm install
+
+# configure your redis at ./config/config.default.ts
+#  exports.redis = {
+#     clients: {
+#       for_sub_pub: {
+#         port: your_port,          // Redis port
+#         host: 'your_host',        // Redis host
+#         password: 'your_password',// If you have set password
+#         db: your_db_num,          // 0 ~ 15
+#       },
+#       for_cache: {
+#         port: your_port,          // Redis port
+#         host: 'your_host',        // Redis host
+#         password: 'your_password',// If you have set password
+#         db: your_db_num,          // 0 ~ 15
+#       }
+#     },
+#   }
+
+npm run dev
+```
+
+visit: http://127.0.0.1:7001
+
+
+## Build & Deploy
+
+Build:
+```bash
+npm run clean
+npm run build
+easy zip
+```
+
+copy the zip file you generated to server
+
+Run in backend mode:
+```bash
+unzip your_zip_filename
+cd your_unzip_directory
+npm install --production
+npm run backend
+```
+
+## Repo Structure
+
+```
+cryptocurrency-realtime-price/
+ ├── app.js (register application hooks to init data from redis)
+ ├── app/
+ │   ├── controller/
+ │   │   ├── main.ts (Server-Side Rendering and async data api)
+ │   │   ├── io/
+ │   │   │    ├── controller/
+ │   │   │    │    ├── default.ts (deal with websocket events)
+ │   │   │    ├── middleware/
+ │   │   │    │    ├── connection.ts (deal with websocket connections and listening for currency update information)
+ │   ├── service/
+ │   │   ├── price.ts (load price from application cache)
+ │   ├── view/ (EggJS need to keep this dir exists)
+ │   ├── web/ (react web app)
+ │   │   ├── asset/ (images and normalize css)
+ │   │   ├── component/layout/index.tsx (html layout)
+ │   │   ├── framework  (bootstrap layout)
+ │   │   │   ├── app.tsx (render and route business)
+ │   │   │   ├── request.tsx (load data async with axios)
+ │   │   ├── page/main/   (Cryptocurrency-Realtime-Price main page, based on react + redux)
+ │   │   │   ├── Router
+ │   │   │   │   ├── home.tsx/css
+ │   │   │   │   ├── index.tsx
+ │   │   │   │   ├── route.tsx
+ │   │   │   ├── store/
+ │   │   │   │   ├── actions.tsx
+ │   │   │   │   ├── constant.ts
+ │   │   │   │   ├── index.tsx
+ │   │   │   │   ├── reducers.ts
+ │   │   │   ├── view/
+ │   │   ├── tsconfig.json
+ │   ├── router.ts (EggJS route setting)
+ ├── config/ (EggJS default config files)
+ │   ├── config.default.ts (set redis and socket.io configurations)
+ │   ├── config.local.ts
+ │   ├── config.prod.ts
+ │   ├── config.test.ts
+ │   ├── plugin.ts  (set redis and socket.io configurations)
+ │   ├── tsconfig.json
+ ├── webpack.config.js (need to set build entry)
+ ├── postcss.config.js
+ ├── babel.config.js
+ ├── tsconfig.json
+ ├── tslint.json
+ ├── Dockerfile (working on now)
+ ├── .travis.yml (working on now)
+```
 
 ## TODO
 
@@ -27,7 +133,7 @@ https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 3. [ ] Support deploy with Docker + k8s
 4. [ ] Application Monitoring tools(ELK + Prometheus + Grafana)
 5. [ ] Support Android and IOS
-
+6. [ ] CI/CD
 
 ## Dependencies
 
@@ -40,93 +146,6 @@ https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
 - [egg-view-react-ssr](https://github.com/hubcarl/egg-view-react-ssr) 
 - [egg-webpack](https://github.com/hubcarl/egg-webpack) 
 - [egg-webpack-react](https://github.com/hubcarl/egg-webpack-react)
-
-
-
-
-## Run
-
-
-```bash
-cnpm install
-
-npm run dev
-```
-
-visit: http://127.0.0.1:7001
-
-
-#### Build & Deploy
-
-```bash
-npm run clean
-npm run build
-easy zip
-```
-
-
-## Development
-
-#### Front End
-
-> `${root}/app/web/page/demo.tsx` 
-
-```js
-'use strict';
-import React, { Component } from 'react';
-class Demo extends Component<any, any> {
-  render() {
-    const { title, article } = this.props;
-    return <div>
-      <h1 className="easy-article-detail-title">{title}</h1>
-      <h3 className="easy-article-detail-title">{article.title}</h3>
-      <div>{article.content}</div>
-    </div>;
-  }
-}
-export default Demo;
-```
-
-#### NodeJS
-
-> `${root}/app/controller/demo.ts`
-
-```js
-import { Controller, Context } from 'egg';
-
-export default class DemoController extends Controller {
-  public async index(ctx: Context) {
-    const title = 'Node render';
-    const article = await ctx.service.article.query({ id: Number(id) });
-    await ctx.render('demo.js', { title, article });
-  }
-}
-```
-
-#### Egg Route
-
-> `${root}/app/router.ts`
-
-```js
-import { Application } from 'egg';
-export default (app: Application) => {
-  const { router, controller } = app;
-  router.get('/demo', controller.demo.index);
-};
-```
-
-#### Webpack configuration
-
-> `${root}/webpack.config.js` 
-
-```js
-module.exports = {
-  entry: {
-    demo: 'app/web/page/demo.tsx',
-  }
-}
-```
-
 
 ## License
 
