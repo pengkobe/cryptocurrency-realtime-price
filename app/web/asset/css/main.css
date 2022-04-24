@@ -1044,7 +1044,7 @@ fieldset[disabled] .easy-menu-inverse .btn-link:focus {
   .easy-top-intro-container {
     width: 970px;
   }
-  .cryptocurrency-list-list {
+  .cryptocurrency-list-block {
     width: 85%;
   }
 }
@@ -1052,7 +1052,7 @@ fieldset[disabled] .easy-menu-inverse .btn-link:focus {
   .easy-top-intro-container {
     width: 1170px;
   }
-  .cryptocurrency-list-list {
+  .cryptocurrency-list-block {
     width: 80%;
     margin: 40px auto;
   }

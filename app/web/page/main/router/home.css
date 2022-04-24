@@ -1,13 +1,6 @@
-.ant-menu-horizontal {
-  text-align: center;
-}
-
-.ant-menu-item>a:hover {
-  text-decoration: none;
-}
-
 .cryptocurrency-list-block-title {
   font-size: 32px;
+  padding-left: 8px;
   font-weight: 400;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -151,7 +144,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .cryptocurrency-list-item {
     margin: 10px 10px 10px 10px;
     flex: 95%;
@@ -163,10 +156,14 @@
   }
 }
 
-@media (max-device-width: 480px) and (orientation: landscape) {
+@media (max-width: 480px) {
   .cryptocurrency-list-item {
     margin: 10px 10px 10px 10px;
     flex: 95%;
     max-width: 95%;
+  }
+
+  .cryptocurrency-list-block-title{
+    font-size: 24px;
   }
 }
