@@ -8,7 +8,7 @@ export default class PriceService extends Service {
   }
 
   async getPrices() {
-    let app: any = this.ctx.app;
+    const app: any = this.ctx.app;
     return app.priceCache;
   }
 

@@ -5,6 +5,5 @@ module.exports = app => {
             await this.ctx.socket.emit('res', `Hi! I've got your message: ${message}`);
         }
     }
-    return Controller
+    return Controller;
 };
-
