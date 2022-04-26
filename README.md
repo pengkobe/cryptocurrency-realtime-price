@@ -15,10 +15,9 @@ ps: v0.1.0 uses mocked data because of unknown network problems outside the wall
 
 ## Get Start
 
-notes: **You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start**  
-SEE:  
-https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
-> setup scheduler to load data from nomics
+> notes: **You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start**  (to setup scheduler to load data from nomics)
+> SEE:  
+> https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler 
 
 ```bash
 git clone https://github.com/pengkobe/cryptocurrency-realtime-price
