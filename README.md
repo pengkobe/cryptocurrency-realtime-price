@@ -3,12 +3,12 @@
 > build a simple real-time application which monitors the prices of cryptocurrencies, such as Bitcoin, Ether, etc.  
 
 Target architecture:  
-![architecture](http://processon.com/chart_image/625a90a86376891e0fe51a07.png)
+![architecture](http://processon.com/chart_image/6267e1650e3e742d46149f92.png)
 
 ## Release history
 
 ### **[V.0.2.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.2.0) now released!!!**
-Click here to view: http://119.45.138.135:7001/
+Click here to view: http://realtimeprice.yipeng.info/
 
 #### [V.0.1.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.1.0)
 ps: v0.1.0 uses mocked data because of unknown network problems outside the wall.
@@ -131,7 +131,7 @@ cryptocurrency-realtime-price/
 ## Dependencies
 
 - Egg： ^2.x.x
-- Node: Node ^8.x.x+,
+- Node: ^8.x.x+,
 - Webpack: ^4.x.x
 - React: ^16.0.0
 - TypeScript: ^3.0.0
