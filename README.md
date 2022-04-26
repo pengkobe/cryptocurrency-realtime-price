@@ -1,4 +1,12 @@
 # Cryptocurrency-Realtime-Price
+[![build status][travis-image]][travis-url]
+[![Test coverage][codecov-image]][codecov-url]
+
+[travis-image]: https://img.shields.io/travis/pengkobe/Cryptocurrency-Realtime-Price.svg?style=flat-square
+[travis-url]: https://travis-ci.org/pengkobe/Cryptocurrency-Realtime-Price
+[codecov-image]: https://codecov.io/github/pengkobe/Cryptocurrency-Realtime-Price/coverage.svg?branch=master
+[codecov-url]: https://codecov.io/github/pengkobe/Cryptocurrency-Realtime-Price?branch=master
+
 
 > build a simple real-time application which monitors the prices of cryptocurrencies, such as Bitcoin, Ether, etc.  
 
@@ -15,9 +23,10 @@ ps: v0.1.0 uses mocked data because of unknown network problems outside the wall
 
 ## Get Start
 
-> notes: **You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start**  (to setup scheduler to load data from nomics)
-> SEE:  
-> https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler 
+notes: **You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start**  
+SEE:  
+https://github.com/pengkobe/cryptocurrency-realtime-price-http-scheduler
+> setup scheduler to load data from nomics
 
 ```bash
 git clone https://github.com/pengkobe/cryptocurrency-realtime-price
@@ -59,12 +68,11 @@ npm run build
 easy zip
 ```
 
-Copy the zip file you generated to server (assume that it's in`/path/to/cryptocurrency-realtime-price`):
+copy the zip file you generated to server directory(We assume that is `cryptocurrency-realtime-price`) and Run in backend mode:
 ```bash
 cd cryptocurrency-realtime-price
 unzip your_zip_filename
 npm install --production
-# run in backend mode
 npm run backend
 ```
 
@@ -121,12 +129,19 @@ cryptocurrency-realtime-price/
 
 ## TODO
 
-1. [ ] Support unit test with egg-mocker + mocha
+1. [ ] Support unit test with egg-mocker + mocha (**working on add_test branck**)
 2. [ ] Support user personalized setting with Mongodb
 3. [ ] Support deploy with Docker + k8s
 4. [ ] Application Monitoring tools(ELK + Prometheus + Grafana)
-5. [ ] Support Android and IOS
-6. [ ] CI/CD
+5. [ ] Support Android and IOS (**working on[cryptocurrency-realtime-price-app](https://github.com/pengkobe/cryptocurrency-realtime-price-app)**)
+6. [ ] CI/CD (**working on add_test branck**)
+
+## Related Repo
+> I'm working on now. unfinished yet :)
+
+- [cryptocurrency-realtime-price-app](https://github.com/pengkobe/cryptocurrency-realtime-price-app)
+- [cryptocurrency-realtime-price-vue](https://github.com/pengkobe/cryptocurrency-realtime-price-vue)
+- [cryptocurrency-realtime-price-angular](https://github.com/pengkobe/cryptocurrency-realtime-price-angular)
 
 ## Dependencies
 
