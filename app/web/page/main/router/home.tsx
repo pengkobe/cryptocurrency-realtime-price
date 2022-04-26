@@ -56,7 +56,7 @@ class Home extends Component<any, any> {
     const { list = [] } = this.props;
 
     return <div className="cryptocurrency-list-block">
-      <div className='cryptocurrency-list-block-title'>cryptocurrency-realtime-price</div>
+      <div className='cryptocurrency-list-block-title'>Cryptocurrency Realtime Price</div>
       <ul>
         {list.map(function (item) {
           return <li key={item.name}
@@ -68,12 +68,12 @@ class Home extends Component<any, any> {
             <div className="cryptocurrency-list-price">${item.price}</div>
             <div className="cryptocurrency-list-desc">
               <div>
-                <div>volume:</div>
+                <div className="cryptocurrency-list-label">volume:</div>
                 <div className="cryptocurrency-list-volume">{item.volume}</div>
               </div>
               <div>
-                <div>change:</div>
-                <div className="cryptocurrency-list-change" style={{ color: item.price === "Unknown" ? '' : item.change > 0 ? 'rgb(0, 176, 90)' : 'rgb(255, 0, 32)' }}>{item.change}</div>
+                <div className="cryptocurrency-list-label">change:</div>
+                <div className="cryptocurrency-list-change" style={{ color: item.price === "Unknown" ? '' : item.change > 0 ? '#7AD200' : '#CD0000' }}>{item.change}</div>
               </div>
             </div>
           </li>;

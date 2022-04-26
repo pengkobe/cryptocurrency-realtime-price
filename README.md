@@ -13,7 +13,7 @@ Click here to view: http://realtimeprice.yipeng.info/
 #### [V.0.1.0](https://github.com/pengkobe/cryptocurrency-realtime-price/releases/tag/v0.1.0)
 ps: v0.1.0 uses mocked data because of unknown network problems outside the wall.
 
-## Run
+## Get Start
 
 notes: **You got to start *cryptocurrency-realtime-price-http-scheduler*  first before you start**  
 SEE:  

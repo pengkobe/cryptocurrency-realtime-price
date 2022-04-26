@@ -6,7 +6,7 @@ export default function update(state, action) {
     newState.list = action.data;
   } else if (action.type === REFRESH) {
     let message = action.data;
-    console.log('---i am in reducer---', message)
+    // console.log('---i am in reducer---', message)
     let list = newState.list;
     if (list) {
       for (let curr of list) {

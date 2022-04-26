@@ -14,10 +14,6 @@ class Main extends Component {
     this.state = { current: props.url };
   }
 
-  tabClick(e) {
-    console.log('click', e.target);
-  }
-
   render() {
     return <Layout {...this.props}>
       <Switch>
