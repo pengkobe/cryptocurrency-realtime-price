@@ -129,12 +129,12 @@ cryptocurrency-realtime-price/
 
 ## TODO
 
-1. [ ] Support unit test with egg-mocker + mocha (**working on add_test branck**)
+1. [ ] Support unit test with egg-mocker + mocha (**working on add_test branch**)
 2. [ ] Support user personalized setting with Mongodb
 3. [ ] Support deploy with Docker + k8s
 4. [ ] Application Monitoring tools(ELK + Prometheus + Grafana)
 5. [ ] Support Android and IOS (**working on[cryptocurrency-realtime-price-app](https://github.com/pengkobe/cryptocurrency-realtime-price-app)**)
-6. [ ] CI/CD (**working on add_test branck**)
+6. [ ] CI/CD (**working on add_test branch**)
 
 ## Related Repo
 > I'm working on now. unfinished yet :)
