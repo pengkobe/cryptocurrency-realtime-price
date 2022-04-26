@@ -59,11 +59,12 @@ npm run build
 easy zip
 ```
 
-copy the zip file you generated to server directory(We assume that is `cryptocurrency-realtime-price`) and Run in backend mode:
+Copy the zip file you generated to server (assume that it's in`/path/to/cryptocurrency-realtime-price`):
 ```bash
 cd cryptocurrency-realtime-price
 unzip your_zip_filename
 npm install --production
+# run in backend mode
 npm run backend
 ```
 
