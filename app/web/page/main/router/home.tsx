@@ -60,7 +60,8 @@ class Home extends Component<any, any> {
       <ul>
         {list.map(function (item) {
           return <li key={item.name}
-            className={`cryptocurrency-list-item tab ${item.change > 0 ? "bg-transition-green" : "bg-transition-red"}`} >
+            className={`cryptocurrency-list-item ${item.price === "Unknown" ? '' : item.change > 0 ? "bg-transition-green" : "bg-transition-red"} 
+            ${item.price === "Unknown" ? "currency-inactive" : ""}`} >
             <h2 className="cryptocurrency-list-title">
               <Link to={'/detail/' + item.name}>{item.name}</Link>
             </h2>
@@ -68,11 +69,11 @@ class Home extends Component<any, any> {
             <div className="cryptocurrency-list-desc">
               <div>
                 <div>volume:</div>
-                <div>{item.volume}</div>
+                <div className="cryptocurrency-list-volume">{item.volume}</div>
               </div>
               <div>
                 <div>change:</div>
-                <div style={{ color: item.change > 0 ? 'rgb(0, 176, 90)' : 'rgb(255, 0, 32)' }}>{item.change}</div>
+                <div className="cryptocurrency-list-change" style={{ color: item.price === "Unknown" ? '' : item.change > 0 ? 'rgb(0, 176, 90)' : 'rgb(255, 0, 32)' }}>{item.change}</div>
               </div>
             </div>
           </li>;

@@ -103,6 +103,12 @@
   animation-direction: alternate;
 }
 
+.currency-inactive .cryptocurrency-list-title,
+.currency-inactive .cryptocurrency-list-price,
+.cryptocurrency-list-change .cryptocurrency-list-change {
+  color: #808080 !important;
+}
+
 @keyframes fadeInGreen {
   0% {
     background: rgba(0, 238, 2, .2);
@@ -163,7 +169,7 @@
     max-width: 95%;
   }
 
-  .cryptocurrency-list-block-title{
+  .cryptocurrency-list-block-title {
     font-size: 24px;
   }
 }
