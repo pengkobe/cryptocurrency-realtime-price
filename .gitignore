@@ -3,6 +3,7 @@ node_modules
 run
 logs
 typings
+!app/typings
 public
 app/view/img
 app/view/*.js
